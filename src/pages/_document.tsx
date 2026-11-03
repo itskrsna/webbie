@@ -4,7 +4,7 @@ import Document, { Head, Html, Main, NextScript } from 'next/document';
  * The document of the application.
  */
 class MyDocument extends Document {
-  render(): JSX.Element {
+  render(): React.JSX.Element {
     return (
       <Html lang="en">
         <Head>
@@ -21,7 +21,17 @@ class MyDocument extends Document {
           />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
-          <meta name="theme-color" content="#fd8111" />
+          <meta name="theme-color" content="#0b0f14" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+          />
           <link
             rel="apple-touch-icon"
             sizes="180x180"

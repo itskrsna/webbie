@@ -10,7 +10,7 @@ import TileSection from './tile-section/TileSection';
 /**
  * Menu of the website.
  */
-const Menu: React.FC = () => {
+const Menu: React.FC<React.PropsWithChildren> = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(true);
 
   return (

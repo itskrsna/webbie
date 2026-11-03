@@ -8,7 +8,7 @@ import RelatedPostsSection from '../posts/related-posts-section/RelatedPostsSect
 /**
  * Custom 404 page.
  */
-const PageNotFoundPage: React.FC = () => {
+const PageNotFoundPage: React.FC<React.PropsWithChildren> = () => {
   useTextEffect('404-canvas', '404');
   return (
     <Page>

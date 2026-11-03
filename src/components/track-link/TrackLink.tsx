@@ -1,4 +1,4 @@
-import Link, { LinkProps } from 'next/link';
+import Link from 'next/link';
 import React from 'react';
 
 import { trackEvent } from '../../lib/ga';
@@ -6,7 +6,7 @@ import { trackEvent } from '../../lib/ga';
 /**
  * Props for {@link TrackLink}.
  */
-interface TrackLinkProps extends LinkProps {
+interface TrackLinkProps extends React.ComponentProps<typeof Link> {
   /**
    * The label for GA tracking.
    */

@@ -26,8 +26,9 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, description }) => {
     <header className="overflow-hidden mb-10 md:mb-20">
       <div className="overflow-hidden mb-4 lg:mb-8">
         <motion.h1
-          className="title text-primary text-5xl md:text-8xl font-black leading-none uppercase"
+          className="title text-primary glow cursor text-4xl md:text-7xl font-black leading-none lowercase"
           variants={titleVariants}>
+          <span className="text-secondary-text">&gt; </span>
           {title}
         </motion.h1>
       </div>

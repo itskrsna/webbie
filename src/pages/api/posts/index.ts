@@ -68,6 +68,11 @@ export async function getPosts({
     headers
   });
 
+  if (!response.ok) {
+    console.warn('DEV.to request failed:', response.status);
+    return [];
+  }
+
   let posts: Post[] = await response.json();
 
   posts = posts.filter((post) => {

@@ -40,7 +40,6 @@ const SocialShare: React.FC<SocialShareProps> = ({ item = {}, url }) => {
     <div className="flex items-center text-secondary text-5xl">
       <FacebookShareButton
         url={url}
-        quote={item.title}
         className="inline-block"
         onClick={() => onClick('Facebook', item.id)}>
         <FacebookIcon

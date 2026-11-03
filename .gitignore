@@ -38,3 +38,7 @@ yarn-error.log*
 
 # Local History for Visual Studio Code
 .history/
+
+# generated
+tsconfig.tsbuildinfo
+AGENTS.md

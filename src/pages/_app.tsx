@@ -5,6 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Script from 'next/script';
 import React, { useEffect } from 'react';
 
 import Footer from '../components/footer/Footer';
@@ -16,7 +17,7 @@ import Menu from './menu/index';
 /**
  * This is the root page that envelops the page being navigated to.
  */
-const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
+const MyApp = ({ Component, pageProps }: AppProps): React.JSX.Element => {
   const router = useRouter();
   let toshowMenu;
 
@@ -49,7 +50,7 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
     <>
       <Head>
         <meta charSet="UTF-8" />
-        <meta name="google-adsense-account" content="ca-pub-2060714502209042"/>
+        <meta name="google-adsense-account" content="ca-pub-2060714502209042" />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
@@ -79,42 +80,38 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@kri4shna" />
-
-        {/* Google Analytics */}
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-        />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4629230722874075"
-          crossOrigin="anonymous"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_TRACKING_ID}', {
-                  page_path: window.location.pathname,
-                });
-              `
-          }}
-        />
-
-        {/* MS Clarity */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            (function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "7ei0mkvbfa");
-              `
-          }}
-        />
       </Head>
+      {/* Google Analytics */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4629230722874075"
+        crossOrigin="anonymous"
+        strategy="afterInteractive"
+      />
+      <Script id="ga-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_TRACKING_ID}', {
+            page_path: window.location.pathname,
+          });
+        `}
+      </Script>
+
+      {/* MS Clarity */}
+      <Script id="ms-clarity" strategy="afterInteractive">
+        {`
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "7ei0mkvbfa");
+        `}
+      </Script>
       {toshowMenu}
       <div
         className={
@@ -122,7 +119,7 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
             ? 'app-max pt-20'
             : ''
         }>
-        <AnimatePresence initial={false} exitBeforeEnter>
+        <AnimatePresence initial={false} mode="wait">
           <Component key={router.asPath} {...pageProps} one={'one'} />
         </AnimatePresence>
         {router.pathname.length > 1 && router.asPath != '/' ? (

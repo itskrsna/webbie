@@ -1,7 +1,8 @@
+import type { Variants } from 'framer-motion';
 /**
  * Animation variants for the page title.
  */
-export const titleVariants = {
+export const titleVariants: Variants = {
   initial: {
     transform: 'translateY(100%)'
   },
@@ -17,7 +18,7 @@ export const titleVariants = {
 /**
  * Animation variants for the page description.
  */
-export const descriptionVariants = {
+export const descriptionVariants: Variants = {
   initial: {
     opacity: 0,
     transform: 'translateY(100%)'

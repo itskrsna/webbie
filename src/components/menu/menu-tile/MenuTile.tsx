@@ -1,10 +1,12 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useMemo } from 'react';
 
 import { addCamelCaseKeys } from '../../../lib';
 import s from './MenuTile.module.scss';
+
+const MotionLink = motion.create(Link);
 
 const directions = {
   top: {
@@ -91,7 +93,7 @@ const MenuTile: React.FC<MenuTileProps> = ({
   const styles = useMemo(() => addCamelCaseKeys(s), []);
   const router = useRouter();
 
-  const variants = {
+  const variants: Variants = {
     open: {
       opacity: 1,
       ...directions[direction].open,
@@ -111,7 +113,7 @@ const MenuTile: React.FC<MenuTileProps> = ({
     }
   };
 
-  const contentVariants = {
+  const contentVariants: Variants = {
     open: {
       opacity: 1,
       ...directions[direction].open,
@@ -130,32 +132,31 @@ const MenuTile: React.FC<MenuTileProps> = ({
   return (
     <div className={`${styles.tile} w-1/2 overflow-hidden`}>
       <motion.div
-        className={`flex h-full flex-col justify-end px-4 py-8 bg-dark-shade text-primary`}
+        className={`flex h-full flex-col justify-end px-4 py-8 bg-dark-shade text-primary border border-dark-tint hover:border-primary transition-colors`}
         variants={variants}
         initial={'closed'}>
-        <Link href={url} passHref>
-          <motion.a
-            className={`${styles.textFill} ${
-              theme === 'primary'
-                ? styles.textFillSecondary
-                : styles.textFillPrimary
-            } text-${theme} block text-3xl lg:text-5xl font-black uppercase cursor-pointer`}
-            variants={contentVariants}
-            initial={'closed'}
-            title={title}
-            onClick={(event) => {
-              onClick();
-              setTimeout(() => router.push(url), 300);
-              event.preventDefault();
-            }}>
-            {title}
-          </motion.a>
-        </Link>
+        <MotionLink
+          href={url}
+          className={`${styles.textFill} ${
+            theme === 'primary'
+              ? styles.textFillSecondary
+              : styles.textFillPrimary
+          } text-${theme} block text-2xl lg:text-4xl font-black lowercase cursor-pointer`}
+          variants={contentVariants}
+          initial={'closed'}
+          title={`~/${title.toLowerCase()}`}
+          onClick={(event) => {
+            onClick();
+            setTimeout(() => router.push(url), 300);
+            event.preventDefault();
+          }}>
+          ~/{title.toLowerCase()}
+        </MotionLink>
         <motion.p
-          className={`text-base text-${theme} lg:text-xl`}
+          className={`text-sm text-${theme} lg:text-base opacity-80`}
           variants={contentVariants}
           initial={'closed'}>
-          {subTitle}
+          {`# ${subTitle}`}
         </motion.p>
       </motion.div>
     </div>

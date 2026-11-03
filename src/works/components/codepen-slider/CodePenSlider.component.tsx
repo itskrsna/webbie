@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import React from 'react';
 
 /**
@@ -90,7 +90,7 @@ const pens: Pen[] = [
 /**
  * Variant for the main slier content.
  */
-const sliderContentChildrenVariants = {
+const sliderContentChildrenVariants: Variants = {
   initial: {
     opacity: 0,
     transform: 'translateY(50%)'
@@ -109,7 +109,7 @@ const sliderContentChildrenVariants = {
  * The slider in the works page.
  * @param Param of type {@link WorksSliderProps}
  */
-const CodePenSlider: React.FC = () => {
+const CodePenSlider: React.FC<React.PropsWithChildren> = () => {
   return (
     <motion.div className="flex flex-col">
       <motion.p

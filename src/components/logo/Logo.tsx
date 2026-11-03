@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import React from 'react';
 
 /**
@@ -16,7 +16,7 @@ interface LogoProps {
  * @param side The length and width of the icon. Stroke size is computed dynamically based on it.
  */
 const Logo: React.FC<LogoProps> = ({ side = 150 }) => {
-  const svgVariants = {
+  const svgVariants: Variants = {
     open: {
       opacity: 1
     },
@@ -24,7 +24,7 @@ const Logo: React.FC<LogoProps> = ({ side = 150 }) => {
       opacity: 0
     }
   };
-  const variants = {
+  const variants: Variants = {
     open: {
       pathLength: 1,
       transition: { duration: 1.3, ease: [0.75, 0, 0.55, 1] }

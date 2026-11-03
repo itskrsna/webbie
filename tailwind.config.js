@@ -1,14 +1,9 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+ 
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  purge: {
-    content: ['./src/**/*.{js,ts,jsx,tsx}'],
-    preserveHtmlElements: false,
-    options: {
-      safelist: ['bg-primary', 'border-primary', 'border-secondary']
-    }
-  },
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  safelist: ['bg-primary', 'border-primary', 'border-secondary'],
   theme: {
     colors: {
       black: '#000',
@@ -35,9 +30,9 @@ module.exports = {
       }
     },
     fontFamily: {
-      sans: ['Nunito\\ Sans', ...defaultTheme.fontFamily.sans],
-      cursive: ['Adinda\\ Melia'],
-      mono: [...defaultTheme.fontFamily.mono]
+      sans: ['JetBrains\\ Mono', ...defaultTheme.fontFamily.mono],
+      cursive: ['JetBrains\\ Mono', ...defaultTheme.fontFamily.mono],
+      mono: ['JetBrains\\ Mono', ...defaultTheme.fontFamily.mono]
     },
     extend: {
       fontSize: {
@@ -49,10 +44,6 @@ module.exports = {
         '3/5': '60%'
       }
     }
-  },
-  variants: {
-    margin: ['responsive', 'first', 'last'],
-    padding: ['responsive', 'first', 'last'],
   },
   plugins: []
 };

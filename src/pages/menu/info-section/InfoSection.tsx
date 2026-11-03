@@ -1,14 +1,40 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 
-import content from '../../../../frontaid.content.json';
-import Logo from '../../../components/logo/Logo';
 import SocialIcons from '../../../components/social-icons/SocialIcons';
+import Terminal from '../../../components/terminal/Terminal';
+
+const lines = [
+  {
+    cmd: 'whoami',
+    out: (
+      <>
+        <span className="text-primary glow font-bold">Krishna Kishore</span>
+        {' — software engineer'}
+      </>
+    )
+  },
+  {
+    cmd: 'cat stack.txt',
+    out: 'typescript · react · next.js · node · cloud · open-source'
+  },
+  {
+    cmd: 'ls ~/sections',
+    out: (
+      <>
+        <span className="text-secondary">works/</span>{' '}
+        <span className="text-secondary">about/</span>{' '}
+        <span className="text-secondary">nuggets/</span>{' '}
+        <span className="text-secondary">posts/</span>
+      </>
+    )
+  }
+];
 
 /**
  * The info section of the {@link Menu} component.
  */
-const InfoSection: React.FC = () => {
-  const sectionVariants = {
+const InfoSection: React.FC<React.PropsWithChildren> = () => {
+  const sectionVariants: Variants = {
     open: {
       y: 0,
       transition: {
@@ -18,45 +44,31 @@ const InfoSection: React.FC = () => {
         staggerChildren: 0.3
       }
     },
-    closed: {
-      y: '100%',
-      transition: {
-        duration: 0.5
-      }
-    }
+    closed: { y: '100%', transition: { duration: 0.5 } }
   };
 
-  const variants = {
+  const variants: Variants = {
     open: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.9,
-        ease: [0.22, 1, 0.36, 1]
-      }
+      transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] }
     },
-    closed: {
-      opacity: 0,
-      y: '100%'
-    }
+    closed: { opacity: 0, y: '100%' }
   };
 
   return (
     <motion.div
-      className="lg:w-1/2 h-2/5 lg:h-full flex flex-col justify-center items-center bg-dark-shade"
+      className="lg:w-1/2 h-2/5 lg:h-full flex flex-col justify-center items-center bg-dark-shade px-4"
       variants={sectionVariants}
       initial={false}>
-      <motion.div variants={variants} initial={false}>
-        <Logo side={130} />
-      </motion.div>
       <motion.div
-        className="font-cursive text-5xl lg:text-6xl text-primary mt-4 lg:mt-16"
+        className="w-full flex justify-center"
         variants={variants}
         initial={false}>
-        {content.Components.Menu.Info_Section.title}
+        <Terminal lines={lines} />
       </motion.div>
       <motion.div variants={variants} initial={false}>
-        <SocialIcons className="text-2xl md:text-3xl m-1 lg:m-2" />
+        <SocialIcons className="text-2xl md:text-3xl m-1 lg:m-2 mt-4" />
       </motion.div>
     </motion.div>
   );

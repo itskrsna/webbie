@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import Head from 'next/head';
 import React from 'react';
 
@@ -17,7 +17,7 @@ import WorksSlider, {
 /**
  * Animtion variations for the slider container.
  */
-const sliderContainerVariants = {
+const sliderContainerVariants: Variants = {
   initial: {
     opacity: 0,
     transform: 'translateY(100%)'
@@ -37,7 +37,7 @@ const sliderContainerVariants = {
 /**
  * Represents the works page of the application.
  */
-const WorksPage: React.FC = () => {
+const WorksPage: React.FC<React.PropsWithChildren> = () => {
   const openSourceWorksList: WorksListProps = {
     title: 'Open Source',
     description:

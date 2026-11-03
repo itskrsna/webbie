@@ -9,12 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Run Test Cases
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: '14.x'
-      - run: npm install
+          node-version-file: '.nvmrc'
+          cache: npm
+      - run: npm ci
       - run: npm run test:ci
       - name: Tests ✅
         if: ${{ success() }}

@@ -69,6 +69,11 @@ export async function getNuggets({
     headers
   });
 
+  if (!response.ok) {
+    console.warn('DEV.to request failed:', response.status);
+    return [];
+  }
+
   let nuggets: Nugget[] = await response.json();
 
   nuggets = nuggets.filter((nugget) => {
