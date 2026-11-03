@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import Head from 'next/head';
 import React from 'react';
 
@@ -6,7 +6,6 @@ import withPageTransition from '../../components/hoc/with-page-transition';
 import Page from '../../components/page/Page';
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
-import CodePenSlider from '../../works/components/codepen-slider/CodePenSlider.component';
 import WorksList, {
   WorksListProps
 } from '../../works/components/works-list/WorksList.component';
@@ -17,7 +16,7 @@ import WorksSlider, {
 /**
  * Animtion variations for the slider container.
  */
-const sliderContainerVariants = {
+const sliderContainerVariants: Variants = {
   initial: {
     opacity: 0,
     transform: 'translateY(100%)'
@@ -37,7 +36,7 @@ const sliderContainerVariants = {
 /**
  * Represents the works page of the application.
  */
-const WorksPage: React.FC = () => {
+const WorksPage: React.FC<React.PropsWithChildren> = () => {
   const openSourceWorksList: WorksListProps = {
     title: 'Open Source',
     description:
@@ -71,11 +70,6 @@ const WorksPage: React.FC = () => {
       title: 'Open Source',
       component: WorksList,
       props: openSourceWorksList
-    },
-    {
-      title: 'Codepen',
-      component: CodePenSlider,
-      props: {}
     },
     {
       title: 'Blogs',

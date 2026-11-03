@@ -1,7 +1,8 @@
+import type { Variants } from 'framer-motion';
 /**
  * Animation variants for each skill section.
  */
-export const skillSectionVariants = {
+export const skillSectionVariants: Variants = {
   closed: {
     scale: 0
   },
@@ -18,7 +19,7 @@ export const skillSectionVariants = {
 /**
  * Animation variants for each skill list.
  */
-export const skillsListVariants = {
+export const skillsListVariants: Variants = {
   closed: {
     opacity: 0
   },
@@ -34,7 +35,7 @@ export const skillsListVariants = {
 /**
  * Animation variants for each skill list item.
  */
-export const skillsListItemVariants = {
+export const skillsListItemVariants: Variants = {
   closed: {
     opacity: 0,
     transform: 'translateY(100%)'
@@ -49,7 +50,7 @@ export const skillsListItemVariants = {
 /**
  * Animation variants for skill header container.
  */
-export const headerVariants = {
+export const headerVariants: Variants = {
   closed: {
     transform: 'translate(0%, -50%) scaleY(0)'
   },
@@ -61,7 +62,7 @@ export const headerVariants = {
 /**
  * Animation variants for skill header content.
  */
-export const headerContentVariants = {
+export const headerContentVariants: Variants = {
   closed: {
     width: '0%'
   },
@@ -77,14 +78,14 @@ export const headerContentVariants = {
 /**
  * Animation variants for header content background.
  */
-export const headerContentBackgroundVariants = {
+export const headerContentBackgroundVariants: Variants = {
   closed: {
     transform: 'translateX(-100%)'
   },
   open: {
-    delay: 1,
     transform: 'translateX(0%)',
     transition: {
+      delay: 1,
       duration: 0.6,
       ease: [0.79, -0.01, 0, 0.99]
     }

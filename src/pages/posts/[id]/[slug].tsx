@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import {
   GetStaticPaths,
   GetStaticPathsResult,
@@ -22,7 +22,7 @@ import { getPostById } from '../../api/posts/[id]';
 /**
  * Placeholder animation variant for the header section.
  */
-const headerVariants = {
+const headerVariants: Variants = {
   initial: {
     opacity: 0
   },
@@ -38,7 +38,7 @@ const headerVariants = {
 /**
  * Animation variants for the header children.
  */
-export const headerChildrenVariants = {
+export const headerChildrenVariants: Variants = {
   initial: {
     opacity: 0,
     transform: 'translateY(50%)'
@@ -56,7 +56,7 @@ export const headerChildrenVariants = {
 /**
  * Animation variants for the line after header.
  */
-const hrVariants = {
+const hrVariants: Variants = {
   initial: {
     opacity: 0,
     scale: 0
@@ -75,7 +75,7 @@ const hrVariants = {
 /**
  * Animation variants for the page content.
  */
-const postContentVariants = {
+const postContentVariants: Variants = {
   initial: {
     opacity: 0,
     transform: 'translateY(2%)'
@@ -115,6 +115,7 @@ export const getStaticPaths: GetStaticPaths = async (): Promise<
     };
   } catch (e) {
     console.error('Error while fetching static paths for post: ', e);
+    return { paths: [], fallback: 'blocking' };
   }
 };
 
@@ -150,6 +151,7 @@ export const getStaticProps = async ({
       params.id,
       e
     );
+    return { notFound: true, revalidate: 60 };
   }
 };
 
@@ -195,8 +197,9 @@ const PostPage: React.FC<PostPageProps> = ({ post = {} }) => {
                 <Link
                   key={tag}
                   href="/posts/tag/[tag]"
-                  as={`/posts/tag/${tag}`}>
-                  <a className="ul-hover-effect mr-2">#{tag}</a>
+                  as={`/posts/tag/${tag}`}
+                  className="ul-hover-effect mr-2">
+                  #{tag}
                 </Link>
               );
             })}

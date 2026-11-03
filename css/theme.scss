@@ -1,20 +1,24 @@
 :root {
-  --color-primary: #fd8111;
-  --color-primary-shade: #f17508;
-  --color-primary-tint: #e79044;
-  --color-primary-light: #eeb079;
+  /* Terminal green: primary accent */
+  --color-primary: #3dff9a;
+  --color-primary-shade: #1fd67a;
+  --color-primary-tint: #6dffb5;
+  --color-primary-light: #a8ffd2;
 
-  --color-secondary: #72e395;
-  --color-secondary-shade: #5fcf83;
-  --color-secondary-tint: #9aecb4;
-  --color-secondary-light: #d6fae1;
-  --color-secondary-text: #c5c2b8;
+  /* Cyan: secondary accent */
+  --color-secondary: #4cc9f0;
+  --color-secondary-shade: #2fb0d8;
+  --color-secondary-tint: #7bd9f5;
+  --color-secondary-light: #c2ecfa;
+  --color-secondary-text: #8b98a9;
 
-  --color-dark: #20252c;
-  --color-dark-black: #191e23;
-  --color-dark-shade: #1c2127;
-  --color-dark-tint: #363b41;
-  --color-dark-light: #63666b;
-
-  --font-color: #fff;
+  /* Near-black console surfaces */
+  --color-dark: #0b0f14;
+  --color-dark-black: #070a0e;
+  --color-dark-shade: #10161d;
+  --color-dark-tint: #1c2530;
+  --color-dark-light: #3a4656;
+  --color-warn: #ffb454;
+  --color-border: #1f2a36;
+  --font-color: #d6e2ee;
 }

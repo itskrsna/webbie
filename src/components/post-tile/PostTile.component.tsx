@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 import { addCamelCaseKeys, formatDate } from '../../lib';
 import { Post } from '../../models/Post';
@@ -17,7 +17,7 @@ interface PostTileProps {
  * Tile component to represent each blog post.
  */
 const PostTile: React.FC<PostTileProps> = ({ post }) => {
-  const delay = Math.random() * 1;
+  const [delay] = useState(() => Math.random());
   const styles = addCamelCaseKeys(s);
   const ref = useRef(undefined);
 
@@ -78,13 +78,11 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
             <Link
               href="/posts/[id]/[slug]"
               as={`/posts/${post.id}/${post.slug}`}>
-              <a>
-                <div
-                  className={`${styles.textFill} relative text-xl uppercase font-black overflow-hidden`}
-                  title={post.title}>
-                  {post.title}
-                </div>
-              </a>
+              <div
+                className={`${styles.textFill} relative text-xl uppercase font-black overflow-hidden`}
+                title={post.title}>
+                {post.title}
+              </div>
             </Link>
             <div className="text-xs text-secondary font-black mt-2 mb-4">
               <div className="mb-1">
@@ -99,8 +97,9 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
                       <Link
                         key={tag}
                         href="/posts/tag/[tag]"
-                        as={`/posts/tag/${tag}`}>
-                        <a className="ul-hover-effect mr-2">#{tag}</a>
+                        as={`/posts/tag/${tag}`}
+                        className="ul-hover-effect mr-2">
+                        #{tag}
                       </Link>
                     );
                   })}

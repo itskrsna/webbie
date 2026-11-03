@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import {
   GetStaticPaths,
   GetStaticPathsResult,
@@ -22,7 +22,7 @@ import { getNuggetById } from '../../api/nuggets/[id]';
 /**
  * Placeholder animation variant for the header section.
  */
-const headerVariants = {
+const headerVariants: Variants = {
   initial: {
     opacity: 0
   },
@@ -38,7 +38,7 @@ const headerVariants = {
 /**
  * Animation variants for the header children.
  */
-export const headerChildrenVariants = {
+export const headerChildrenVariants: Variants = {
   initial: {
     opacity: 0,
     transform: 'translateY(50%)'
@@ -56,7 +56,7 @@ export const headerChildrenVariants = {
 /**
  * Animation variants for the line after header.
  */
-const hrVariants = {
+const hrVariants: Variants = {
   initial: {
     opacity: 0,
     scale: 0
@@ -75,7 +75,7 @@ const hrVariants = {
 /**
  * Animation variants for the page content.
  */
-const nuggetContentVariants = {
+const nuggetContentVariants: Variants = {
   initial: {
     opacity: 0,
     transform: 'translateY(2%)'
@@ -115,6 +115,7 @@ export const getStaticPaths: GetStaticPaths = async (): Promise<
     };
   } catch (e) {
     console.error('Error while fetching static paths for nuggets: ', e);
+    return { paths: [], fallback: 'blocking' };
   }
 };
 
@@ -149,6 +150,7 @@ export const getStaticProps = async ({
       params.id,
       e
     );
+    return { notFound: true, revalidate: 60 };
   }
 };
 
@@ -194,8 +196,9 @@ const NuggetPage: React.FC<NuggetPageProps> = ({ nugget = {} }) => {
                 <Link
                   key={tag}
                   href="/nuggets/tag/[tag]"
-                  as={`/nuggets/tag/${tag}`}>
-                  <a className="inline-block ul-hover-effect mr-2">#{tag}</a>
+                  as={`/nuggets/tag/${tag}`}
+                  className="inline-block ul-hover-effect mr-2">
+                  #{tag}
                 </Link>
               );
             })}

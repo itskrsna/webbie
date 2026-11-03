@@ -21,7 +21,7 @@ export interface WorkSliderItem {
   /**
    * The component rendered inside the slider's content area.
    */
-  component: React.FC;
+  component: React.ComponentType<any>;
 
   /**
    * The porps for the component.
@@ -56,7 +56,7 @@ const WorksSlider: React.FC<WorksSliderProps> = ({ items }) => {
     <motion.div
       className="relative m-auto sm:mt-24 lg:mt-32"
       style={{ height: '70vh', width: 'calc(100% - 40px)', minHeight: '70vh' }}>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         <motion.div
           key={item.title}
           custom={direction}

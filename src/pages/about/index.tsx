@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import Head from 'next/head';
 import React from 'react';
 
@@ -13,7 +13,7 @@ import { useDrawFaceOnCanvas } from '../../lib/hooks';
 /**
  * Placeholder variants for staggering about info.
  */
-const aboutInfoContainerVariants = {
+const aboutInfoContainerVariants: Variants = {
   enter: {
     transition: {
       staggerChildren: 0.5,
@@ -25,7 +25,7 @@ const aboutInfoContainerVariants = {
 /**
  * Animation variants for the about info.
  */
-const aboutInfoVariants = {
+const aboutInfoVariants: Variants = {
   initial: {
     opacity: 0,
     transform: 'translateY(50%)'
@@ -43,7 +43,7 @@ const aboutInfoVariants = {
 /**
  * Represents the about page of the application.
  */
-const AboutPage: React.FC = () => {
+const AboutPage: React.FC<React.PropsWithChildren> = () => {
   useDrawFaceOnCanvas();
 
   return (

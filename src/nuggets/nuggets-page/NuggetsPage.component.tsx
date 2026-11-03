@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -15,7 +15,7 @@ import { useNuggets } from './NuggetsPage.hooks';
 /**
  * Animation variants for the table container.
  */
-const tableContainerVariants = {
+const tableContainerVariants: Variants = {
   initial: {
     transform: 'translateY(100%)',
     opacity: 0
@@ -101,8 +101,9 @@ const NuggetsPage: React.FC<NuggetsPageProps> = ({
                     <div className="w-full md:w-3/12 p-2 md:py-4 md:px-2 lg:p-4 text-secondary-text md:md:text-primary font-bold text-lg">
                       <Link
                         href="/nuggets/[id]/[slug]"
-                        as={`/nuggets/${nugget.id}/${nugget.slug}`}>
-                        <a className="ul-hover-effect">{nugget.title}</a>
+                        as={`/nuggets/${nugget.id}/${nugget.slug}`}
+                        className="ul-hover-effect">
+                        {nugget.title}
                       </Link>
                     </div>
                     <div className="w-full md:w-5/12 pb-2 px-2 md:py-4 md:px-2 lg:p-4">
@@ -115,10 +116,9 @@ const NuggetsPage: React.FC<NuggetsPageProps> = ({
                             <Link
                               key={tag}
                               href="/nuggets/tag/[tag]"
-                              as={`/nuggets/tag/${tag}`}>
-                              <a className="inline-block ul-hover-effect mr-2">
-                                #{tag}
-                              </a>
+                              as={`/nuggets/tag/${tag}`}
+                              className="inline-block ul-hover-effect mr-2">
+                              #{tag}
                             </Link>
                           );
                         })}

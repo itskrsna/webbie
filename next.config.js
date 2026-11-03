@@ -1,10 +1,20 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const withPWA = require('next-pwa')({
-  dest: 'public'
-});
-
-module.exports = withPWA({
-  // next.js config
-});
-
-module.exports = withPWA({});
+/** @type {import('next').NextConfig} */
+module.exports = {
+  poweredByHeader: false,
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()'
+          }
+        ]
+      }
+    ];
+  }
+};

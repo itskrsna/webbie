@@ -10,7 +10,7 @@ import TileSection from './tile-section/TileSection';
 /**
  * Menu of the website.
  */
-const Menu: React.FC = () => {
+const Menu: React.FC<React.PropsWithChildren> = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(true);
 
   return (
@@ -49,8 +49,9 @@ const Menu: React.FC = () => {
         variants={navVariants}
         initial={'closed'}
         animate={isMenuOpen ? 'open' : 'closed'}>
-        <InfoSection />
+        <InfoSection isOpen={isMenuOpen} />
         <TileSection
+          isOpen={isMenuOpen}
           closeMenu={() => {
             setIsMenuOpen(false);
           }}

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import IconCodepen from '../../icons/Codepen';
 import IconGithub from '../../icons/Github';
 import IconLinkedin from '../../icons/Linkedin';
 import IconStackoverflow from '../../icons/Stackoverflow';
@@ -37,15 +36,6 @@ const SocialIcons: React.FC<{ className: string }> = ({ className }) => {
         className={`${className} text-secondary hover:text-secondary-tint`}
         onClick={() => onClick('Github')}>
         <IconGithub />
-      </a>
-      <a
-        aria-label="View my profile on Codepen"
-        target="_blank"
-        rel="noreferrer"
-        href="https://codepen.io/webruster"
-        className={`${className} text-secondary hover:text-secondary-tint`}
-        onClick={() => onClick('Codepen')}>
-        <IconCodepen />
       </a>
       <a
         aria-label="View my profile on Twitter"

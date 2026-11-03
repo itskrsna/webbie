@@ -6,7 +6,7 @@ import s from './UnderConstruction.module.scss';
 /**
  * The under construction animation on the landing page.
  */
-const UnderConstruction: React.FC = () => {
+const UnderConstruction: React.FC<React.PropsWithChildren> = () => {
   const styles = useMemo(() => addCamelCaseKeys(s), []);
   return (
     <>

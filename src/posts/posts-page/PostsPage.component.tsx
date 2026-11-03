@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -14,14 +14,14 @@ import { usePosts } from './PostsPage.hooks';
 /**
  * Animation variants for the posts container element.
  */
-const postsContainerVariants = {
+const postsContainerVariants: Variants = {
   initial: {
     opacity: 0
   },
   enter: {
-    delay: 0.6,
     opacity: 1,
     transition: {
+      delay: 0.6,
       when: 'beforeChildren'
     }
   }

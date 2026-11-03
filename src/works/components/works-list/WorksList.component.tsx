@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 
 import { trackEvent } from '../../../lib/ga';
 
@@ -45,7 +45,7 @@ export interface WorksListProps {
 /**
  * Animation for each item in the component.
  */
-const sliderContentChildrenVariants = {
+const sliderContentChildrenVariants: Variants = {
   initial: {
     opacity: 0,
     transform: 'translateY(50%)'

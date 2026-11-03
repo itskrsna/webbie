@@ -3,8 +3,8 @@
   "short_name": "About KK",
   "display": "standalone",
   "orientation": "portrait",
-  "theme_color": "#fd8111",
-  "background_color": "#20252c",
+  "theme_color": "#0b0f14",
+  "background_color": "#0b0f14",
   "start_url": "/",
   "icons": [
     {

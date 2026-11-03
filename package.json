@@ -7,7 +7,7 @@
     "dev": "next dev -p 3000",
     "build": "next build",
     "test": "jest --watch",
-    "test:ci": "jest --ci --reporters='default' --reporters='./.github/github-actions-reporter'",
+    "test:ci": "jest --ci",
     "cypress": "cypress open",
     "cypress:headless": "cypress run",
     "e2e": "start-server-and-test dev http://localhost:3000 cypress",
@@ -15,126 +15,72 @@
     "start": "next start -p 3000",
     "lint": "npm run lint:code && npm run lint:styles",
     "lint:fix": "npm run lint:code:fix && npm run lint:styles:fix",
-    "lint:code": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:code:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
+    "lint:code": "eslint .",
+    "lint:code:fix": "eslint . --fix",
     "lint:styles": "stylelint ./**/*.scss",
     "lint:styles:fix": "stylelint --fix ./**/*.scss",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "icons": "svgr --typescript --memo --icon --replace-attr-values '#fff=currentColor' --template icons/icon-template.js ./icons/svg --out-dir src/icons",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
-    "camelcase": "^6.2.0",
-    "framer-motion": "^2.8.0",
-    "next": "^11.1.0",
-    "next-pwa": "latest",
-    "react": "^17.0.2",
-    "react-copy-to-clipboard": "^5.0.3",
-    "react-dom": "^17.0.2",
+    "camelcase": "^8.0.0",
+    "framer-motion": "^12.0.0",
+    "next": "^16.0.0",
+    "react": "^19.0.0",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-dom": "^19.0.0",
     "react-infinite-scroll-component": "^6.1.0",
-    "react-intersection-observer": "^8.32.0",
-    "react-markdown": "4.3.1",
-    "react-share": "^4.4.0",
-    "react-syntax-highlighter": "^15.4.3",
-    "reading-time": "^1.3.0",
-    "sitemap": "^7.0.0"
+    "react-intersection-observer": "^9.16.0",
+    "react-markdown": "^10.0.0",
+    "react-share": "^5.2.0",
+    "react-syntax-highlighter": "^16.1.2",
+    "reading-time": "^1.5.0",
+    "sitemap": "^8.0.0"
   },
   "devDependencies": {
-    "@cypress/react": "^5.9.4",
-    "@cypress/webpack-dev-server": "^1.4.0",
-    "@endemolshinegroup/cz-github": "^2.0.0",
-    "@next/eslint-plugin-next": "^11.1.0",
-    "@svgr/cli": "^5.5.0",
-    "@testing-library/react": "^12.0.0",
-    "@types/chai": "^4.2.21",
-    "@types/enzyme": "^3.10.9",
-    "@types/expect": "^24.3.0",
-    "@types/jest": "^27.0.1",
-    "@types/mocha": "^9.0.0",
-    "@types/node": "16.3.3",
-    "@types/react": "17.0.14",
-    "@types/react-dom": "^17.0.9",
-    "@types/react-syntax-highlighter": "^13.5.2",
-    "@typescript-eslint/eslint-plugin": "^4.28.3",
-    "@typescript-eslint/parser": "^4.28.3",
-    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
-    "autoprefixer": "^10.3.1",
-    "chai": "^4.3.4",
-    "commitizen": "^4.2.4",
-    "conventional-changelog-cli": "^2.1.1",
-    "cypress": "^8.3.0",
-    "enzyme": "^3.11.0",
-    "eslint": "^7.31.0",
-    "eslint-config-next": "^11.0.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-chai-friendly": "^0.7.2",
-    "eslint-plugin-cypress": "^2.11.3",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-mocha": "^9.0.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-simple-import-sort": "^7.0.0",
-    "html-webpack-plugin": "^5.3.2",
-    "husky": "^7.0.0",
-    "jest": "^27.0.1",
-    "lint-staged": "^11.0.1",
-    "mocha": "^9.0.3",
-    "postcss": "^8.3.5",
+    "@eslint/eslintrc": "^3.3.0",
+    "@svgr/cli": "^8.1.0",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^6.6.0",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-copy-to-clipboard": "^5.0.7",
+    "@types/react-dom": "^19.0.0",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "autoprefixer": "^10.4.20",
+    "cypress": "^15.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "eslint-plugin-prettier": "^5.2.0",
+    "eslint-plugin-simple-import-sort": "^12.1.0",
+    "husky": "^9.1.0",
+    "jest": "^30.0.0",
+    "jest-environment-jsdom": "^30.0.0",
+    "lint-staged": "^16.0.0",
+    "postcss": "^8.4.49",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-import": "^14.0.2",
-    "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.3.2",
-    "react-test-renderer": "^17.0.2",
-    "sass": "^1.35.2",
-    "start-server-and-test": "^1.13.1",
-    "stylelint": "^13.13.1",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-sass-guidelines": "8.0.0",
-    "stylelint-order": "^4.1.0",
-    "stylelint-prettier": "^1.2.0",
-    "tailwindcss": "^2.2.4",
-    "test-jest": "^1.0.1",
-    "ts-jest": "^27.0.5",
-    "ts-mocha": "^8.0.0",
-    "typescript": "^4.3.5",
-    "webpack": "^5.51.0",
-    "webpack-dev-server": "^3.11.2"
+    "postcss-import": "^16.1.0",
+    "postcss-preset-env": "^10.0.0",
+    "prettier": "^3.4.0",
+    "sass": "^1.83.0",
+    "start-server-and-test": "^2.0.0",
+    "stylelint": "^16.12.0",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "tailwindcss": "^3.4.17",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.0"
   },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
-    },
-    "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
-    },
-    "testMatch": [
-      "**/__tests__/*.(ts|tsx)"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/jest.setup.ts"
-    ],
-    "testPathIgnorePatterns": [
-      "./.next/",
-      "./node_modules/"
-    ],
-    "globals": {
-      "ts-jest": {
-        "tsconfig": "tsconfig.jest.json"
-      }
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "@endemolshinegroup/cz-github"
-    }
+  "engines": {
+    "node": ">=20.9.0"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --cache",
-    "*.scss": "stylelint",
-    "*.*": "prettier --check"
+    "*.{js,jsx,ts,tsx}": "eslint --fix",
+    "*.scss": "stylelint --fix"
   }
 }

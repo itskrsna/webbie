@@ -10,12 +10,17 @@ interface TileSectionProps {
    * Function that closes the menu.
    */
   closeMenu: () => unknown;
+
+  /**
+   * Whether the menu is open.
+   */
+  isOpen: boolean;
 }
 
 /**
  * The tile section of the {@link Menu} component.
  */
-const TileSection: React.FC<TileSectionProps> = ({ closeMenu }) => {
+const TileSection: React.FC<TileSectionProps> = ({ closeMenu, isOpen }) => {
   return (
     <motion.div className="lg:w-1/2 h-3/5 lg:h-full flex flex-wrap">
       <MenuTile
@@ -25,6 +30,7 @@ const TileSection: React.FC<TileSectionProps> = ({ closeMenu }) => {
         url="/works"
         theme="primary"
         onClick={closeMenu}
+        isOpen={isOpen}
       />
       <MenuTile
         direction="left"
@@ -33,6 +39,7 @@ const TileSection: React.FC<TileSectionProps> = ({ closeMenu }) => {
         url="/about"
         theme="secondary"
         onClick={closeMenu}
+        isOpen={isOpen}
       />
       <MenuTile
         direction="right"
@@ -41,6 +48,7 @@ const TileSection: React.FC<TileSectionProps> = ({ closeMenu }) => {
         url="/nuggets"
         theme="secondary"
         onClick={closeMenu}
+        isOpen={isOpen}
       />
       <MenuTile
         direction="top"
@@ -49,6 +57,7 @@ const TileSection: React.FC<TileSectionProps> = ({ closeMenu }) => {
         url="/posts"
         theme="primary"
         onClick={closeMenu}
+        isOpen={isOpen}
       />
     </motion.div>
   );

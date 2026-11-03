@@ -1,7 +1,8 @@
+import type { Variants } from 'framer-motion';
 /**
  * Animation variants for the page content.
  */
-export const contentVariants = {
+export const contentVariants: Variants = {
   initial: {
     opacity: 0,
     transform: 'translateX(100px)'
@@ -27,7 +28,7 @@ export const contentVariants = {
 /**
  * Animation variants for the inital tile that covers the screen before the page appears.
  */
-export const enterFillerVariants = {
+export const enterFillerVariants: Variants = {
   initial: {
     transform: 'scaleX(1)'
   },
@@ -43,7 +44,7 @@ export const enterFillerVariants = {
 /**
  * Animation variants for the tile that appear just before exiting the screen covering the whole page.
  */
-export const exitFillerVariants = {
+export const exitFillerVariants: Variants = {
   initial: {
     transform: 'scaleX(0)'
   },
@@ -62,7 +63,7 @@ export const exitFillerVariants = {
 /**
  * Animation variants for the logo that appears on page exit.
  */
-export const svgVariants = {
+export const svgVariants: Variants = {
   initial: {
     opacity: 0
   },
@@ -77,7 +78,7 @@ export const svgVariants = {
 /**
  * Animation variants for the logo path that animates on page exit.
  */
-export const pathVariants = {
+export const pathVariants: Variants = {
   initial: {
     pathLength: 0
   },

@@ -1,7 +1,8 @@
+import type { Variants } from 'framer-motion';
 /**
  * Animation for each slide.
  */
-export const sliderVariants = {
+export const sliderVariants: Variants = {
   initial: (direction: number): any => {
     const initialTranslate = direction > 0 ? 100 : -100;
     return {
@@ -32,7 +33,7 @@ export const sliderVariants = {
 /**
  * Animation for the previous slide button.
  */
-export const sliderPreviousButtonVariants = {
+export const sliderPreviousButtonVariants: Variants = {
   initial: {
     opacity: 0,
     transform: `translate(10%, -50%) rotate(-45deg)`
@@ -56,7 +57,7 @@ export const sliderPreviousButtonVariants = {
 /**
  * Animation for the next slide button.
  */
-export const sliderNextButtonVariants = {
+export const sliderNextButtonVariants: Variants = {
   initial: {
     opacity: 0,
     transform: `translate(-100%, -50%) rotate(-45deg)`
@@ -80,7 +81,7 @@ export const sliderNextButtonVariants = {
 /**
  * Animation for the header button.
  */
-export const sliderHeaderVariants = {
+export const sliderHeaderVariants: Variants = {
   initial: {
     top: '50%',
     left: '50%',
@@ -110,7 +111,7 @@ export const sliderHeaderVariants = {
 /**
  * Animation for the slide's content container.
  */
-export const sliderContentContainerVariants = {
+export const sliderContentContainerVariants: Variants = {
   initial: {
     scale: 0
   },
@@ -135,7 +136,7 @@ export const sliderContentContainerVariants = {
 /**
  * Animation for the slide's content appearance.
  */
-export const sliderContentVariants = {
+export const sliderContentVariants: Variants = {
   initial: {
     opacity: 0
   },

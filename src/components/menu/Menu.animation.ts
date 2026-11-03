@@ -1,7 +1,8 @@
+import type { Variants } from 'framer-motion';
 /**
  * Animation variants for the menu animation.
  */
-export const navVariants = {
+export const navVariants: Variants = {
   open: {
     y: 0,
     scale: 1,
@@ -24,7 +25,7 @@ export const navVariants = {
 /**
  * Animation variants placeholder for the menu button.
  */
-export const menuButtonVariants = {
+export const menuButtonVariants: Variants = {
   open: {},
   closed: {}
 };
@@ -32,7 +33,7 @@ export const menuButtonVariants = {
 /**
  * Animation variants placeholder for the first bar of the menu button.
  */
-export const barOneVariants = {
+export const barOneVariants: Variants = {
   open: {
     transform: 'rotate(45deg)'
   },
@@ -44,7 +45,7 @@ export const barOneVariants = {
 /**
  * Animation variants placeholder for the second bar of the menu button.
  */
-export const barTwoVariants = {
+export const barTwoVariants: Variants = {
   open: {
     transform: 'rotate(-45deg)',
     width: '36px'
@@ -58,7 +59,7 @@ export const barTwoVariants = {
 /**
  * Animation variants placeholder for the third bar of the menu button.
  */
-export const barThreeVariants = {
+export const barThreeVariants: Variants = {
   open: {
     transform: 'rotate(45deg)',
     marginLeft: '15px'
