@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import { Nugget } from '../../../models/Nugget';
-import { getPostById } from '../posts/[id]';
+import { getPostById, isValidId } from '../posts/[id]';
 
 /**
  * Serverless funciton for /api/nuggets.
@@ -12,7 +12,12 @@ export default async (
   res: NextApiResponse
 ): Promise<void> => {
   try {
-    const nugget = await getNuggetById('');
+    const id = String(req.query.id);
+    if (!isValidId(id)) {
+      res.status(400).send('Invalid id.');
+      return;
+    }
+    const nugget = await getNuggetById(id);
     res.status(200).json(nugget);
   } catch (e) {
     res.status(500).send('Internal Server Error.');

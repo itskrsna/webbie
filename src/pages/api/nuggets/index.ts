@@ -54,7 +54,9 @@ export async function getNuggets({
 }: GetNuggetsProps = {}): Promise<Nugget[]> {
   console.log('Getting nuggets: ', page, per_page, tag);
   const headers = new Headers();
-  headers.append('api-key', process.env.DEV_TO_TOKEN);
+  if (process.env.DEV_TO_TOKEN) {
+    headers.append('api-key', process.env.DEV_TO_TOKEN);
+  }
 
   const url = `https://dev.to/api/articles/me/published?`;
 

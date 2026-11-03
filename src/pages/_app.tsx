@@ -53,7 +53,7 @@ const MyApp = ({ Component, pageProps }: AppProps): React.JSX.Element => {
         <meta name="google-adsense-account" content="ca-pub-2060714502209042" />
         <meta
           name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
+          content="initial-scale=1, width=device-width, viewport-fit=cover"
         />
 
         <link rel="icon" href="/favicon.ico" />

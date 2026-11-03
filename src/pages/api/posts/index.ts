@@ -62,7 +62,9 @@ export async function getPosts({
   console.log(url + params);
 
   const headers = new Headers();
-  headers.append('api-key', process.env.DEV_TO_TOKEN);
+  if (process.env.DEV_TO_TOKEN) {
+    headers.append('api-key', process.env.DEV_TO_TOKEN);
+  }
 
   const response = await fetch(url + params, {
     headers

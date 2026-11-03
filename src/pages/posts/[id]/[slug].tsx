@@ -115,6 +115,7 @@ export const getStaticPaths: GetStaticPaths = async (): Promise<
     };
   } catch (e) {
     console.error('Error while fetching static paths for post: ', e);
+    return { paths: [], fallback: 'blocking' };
   }
 };
 
@@ -150,6 +151,7 @@ export const getStaticProps = async ({
       params.id,
       e
     );
+    return { notFound: true, revalidate: 60 };
   }
 };
 
