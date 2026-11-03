@@ -49,8 +49,9 @@ const Menu: React.FC<React.PropsWithChildren> = () => {
         variants={navVariants}
         initial={'closed'}
         animate={isMenuOpen ? 'open' : 'closed'}>
-        <InfoSection />
+        <InfoSection isOpen={isMenuOpen} />
         <TileSection
+          isOpen={isMenuOpen}
           closeMenu={() => {
             setIsMenuOpen(false);
           }}

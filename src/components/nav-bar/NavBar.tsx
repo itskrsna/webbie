@@ -28,7 +28,7 @@ const NavBar: React.FC<React.PropsWithChildren> = () => {
               href="/menu"
               as="/"
               className="text-lg md:text-xl text-primary glow">
-              <span className="text-secondary">kishore@webbie</span>
+              <span className="text-secondary">quietdaemon</span>
               <span className="text-secondary-text">:~$</span>{' '}
               <span className="cursor">cd /</span>
             </Link>

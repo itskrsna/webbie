@@ -76,6 +76,11 @@ interface MenuTileProps {
    * Function to be called menu tile is clicked.
    */
   onClick: () => unknown;
+
+  /**
+   * Whether the menu is open. Drives the tile's animation state.
+   */
+  isOpen?: boolean;
 }
 
 /**
@@ -88,8 +93,10 @@ const MenuTile: React.FC<MenuTileProps> = ({
   subTitle,
   url,
   theme,
-  onClick = () => ({})
+  onClick = () => ({}),
+  isOpen = true
 }) => {
+  const animate = isOpen ? 'open' : 'closed';
   const styles = useMemo(() => addCamelCaseKeys(s), []);
   const router = useRouter();
 
@@ -134,7 +141,8 @@ const MenuTile: React.FC<MenuTileProps> = ({
       <motion.div
         className={`flex h-full flex-col justify-end px-4 py-8 bg-dark-shade text-primary border border-dark-tint hover:border-primary transition-colors`}
         variants={variants}
-        initial={'closed'}>
+        initial="closed"
+        animate={animate}>
         <MotionLink
           href={url}
           className={`${styles.textFill} ${
@@ -143,7 +151,8 @@ const MenuTile: React.FC<MenuTileProps> = ({
               : styles.textFillPrimary
           } text-${theme} block text-2xl lg:text-4xl font-black lowercase cursor-pointer`}
           variants={contentVariants}
-          initial={'closed'}
+          initial="closed"
+          animate={animate}
           title={`~/${title.toLowerCase()}`}
           onClick={(event) => {
             onClick();
@@ -155,7 +164,8 @@ const MenuTile: React.FC<MenuTileProps> = ({
         <motion.p
           className={`text-sm text-${theme} lg:text-base opacity-80`}
           variants={contentVariants}
-          initial={'closed'}>
+          initial="closed"
+          animate={animate}>
           {`# ${subTitle}`}
         </motion.p>
       </motion.div>

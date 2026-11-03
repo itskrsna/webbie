@@ -6,7 +6,6 @@ import withPageTransition from '../../components/hoc/with-page-transition';
 import Page from '../../components/page/Page';
 import PageBody from '../../components/page-body/PageBody';
 import PageHeader from '../../components/page-header/PageHeader';
-import CodePenSlider from '../../works/components/codepen-slider/CodePenSlider.component';
 import WorksList, {
   WorksListProps
 } from '../../works/components/works-list/WorksList.component';
@@ -71,11 +70,6 @@ const WorksPage: React.FC<React.PropsWithChildren> = () => {
       title: 'Open Source',
       component: WorksList,
       props: openSourceWorksList
-    },
-    {
-      title: 'Codepen',
-      component: CodePenSlider,
-      props: {}
     },
     {
       title: 'Blogs',

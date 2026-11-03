@@ -6,6 +6,9 @@ module.exports = {
   safelist: ['bg-primary', 'border-primary', 'border-secondary'],
   theme: {
     colors: {
+      current: 'currentColor',
+      transparent: 'transparent',
+      inherit: 'inherit',
       black: '#000',
       white: '#fff',
       primary: {

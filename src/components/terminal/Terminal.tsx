@@ -49,7 +49,7 @@ interface TerminalProps {
  * Honors `prefers-reduced-motion` by rendering everything immediately.
  */
 const Terminal: React.FC<TerminalProps> = ({
-  title = 'kishore@webbie: ~',
+  title = 'quietdaemon: ~',
   lines,
   speed = 38
 }) => {
